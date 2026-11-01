@@ -1,0 +1,291 @@
+/* الخط: Amiri من Google Fonts مع نسخة محلية احتياطية */
+@font-face {
+  font-family: "AmiriLocal";
+  src: url("../fonts/Amiri-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --primary: #062640;
+  --bg: #FFFFFF;
+  --text: #000000;
+  --border: #e3e7ec;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Amiri", "AmiriLocal", serif;
+  font-weight: 400;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 18px;
+  direction: rtl;
+  text-align: right;
+  padding-bottom: 90px; /* مساحة لزر واتساب الثابت */
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+.container { width: min(1100px, 92%); margin-inline: auto; }
+
+/* ===== الترويسة ===== */
+.site-header {
+  background: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem 0;
+  flex-wrap: wrap;
+}
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+.nav { display: flex; gap: .4rem; flex-wrap: wrap; list-style: none; }
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: .3rem .9rem;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  transition: background .2s;
+}
+.nav a:hover, .nav a[aria-current="page"] { background: rgba(255,255,255,.18); }
+
+/* ===== عناوين وأقسام ===== */
+main { padding: 2.5rem 0; }
+section { margin-bottom: 3rem; }
+h1, h2, h3 { color: var(--primary); font-weight: 400; line-height: 1.5; }
+h1 { font-size: 2.2rem; margin-bottom: .6rem; }
+h2 { font-size: 1.8rem; margin-bottom: 1.2rem; }
+h3 { font-size: 1.35rem; margin-bottom: .6rem; }
+p { margin-bottom: .8rem; }
+
+.section-title {
+  border-bottom: 3px solid var(--primary);
+  display: inline-block;
+  padding-bottom: .2rem;
+}
+
+/* ===== الترحيب ===== */
+.welcome {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.welcome p { font-size: 1.2rem; }
+
+/* ===== شبكة الأندية في الرئيسية ===== */
+.clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.club-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.club-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(6,38,64,.12); }
+.club-card img { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; }
+.club-card span {
+  display: block;
+  text-align: center;
+  padding: .6rem;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* ===== بطاقات معلومات ===== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+.info-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.info-card .icon {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+.info-card .icon svg { width: 24px; height: 24px; }
+.info-card a { color: var(--primary); }
+
+/* ===== صفحة الأندية ===== */
+.club-nav {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.club-nav a {
+  text-decoration: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: .3rem 1rem;
+  border-radius: 999px;
+}
+.club-nav a:hover { background: var(--primary); color: #fff; }
+
+.club {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  scroll-margin-top: 90px;
+}
+.club-header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1.2rem;
+}
+.club-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+.club-header h2 { margin: 0; }
+
+.shirt-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.shirt-images figure {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.shirt-images img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.shirt-images figcaption {
+  text-align: center;
+  padding: .4rem;
+  background: #f5f7f9;
+}
+
+.sizes { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; direction: ltr; justify-content: flex-end; }
+.sizes span {
+  min-width: 52px;
+  text-align: center;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: 8px;
+  padding: .2rem .6rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.types { list-style: none; display: grid; gap: .6rem; }
+.types li {
+  border-right: 4px solid var(--primary);
+  background: #f5f7f9;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+}
+
+/* ===== صفحة التواصل ===== */
+.contact-list { list-style: none; display: grid; gap: 1rem; max-width: 600px; }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  transition: box-shadow .2s;
+}
+.contact-item:hover { box-shadow: 0 6px 16px rgba(6,38,64,.12); }
+.contact-item .icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.contact-item .icon svg { width: 26px; height: 26px; }
+.contact-item small { display: block; color: var(--primary); font-size: 1rem; }
+.contact-item .value { direction: ltr; unicode-bidi: isolate; font-family: Arial, sans-serif; font-size: 1.05rem; }
+
+/* ===== التذييل ===== */
+.site-footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1.2rem 0;
+  font-size: 1rem;
+}
+
+/* ===== زر واتساب الثابت ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  padding: .6rem 1.4rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.2);
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+.whatsapp-float svg { width: 26px; height: 26px; }
+.whatsapp-float .num { direction: ltr; unicode-bidi: isolate; font-family: Arial, sans-serif; }
+
+/* ===== التجاوب ===== */
+@media (max-width: 900px) {
+  .clubs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  .site-header .container { justify-content: center; }
+  .nav { justify-content: center; }
+  .nav a { padding: .2rem .7rem; font-size: 1rem; }
+  .club { padding: 1rem; }
+  .shirt-images { gap: .6rem; }
+  .whatsapp-float { font-size: 1rem; padding: .55rem 1.1rem; }
+}
